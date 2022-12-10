@@ -1,26 +1,24 @@
 @extends('layouts.main')
 
-@section('title', 'Descricao')
+@section('title', $book->title)
 
 @section('content')
 <div class="col-md-10 offset-md-1">
     <div class="row">
       <div id="image-container" class="col-md-4">
-        <img src="/imgs/Livro 1.jpeg" class="img-fluid" alt="">
+        <img src="/imgs/books/{{$book->image}}" class="img-fluid" alt="">
       </div>
       <div id="info-container" class="col-md-8">
-        <h1><strong>Baladas de Amor ao Vento</strong></h1>
-        <p class="book-description">
-            Primeiro romance de Paulina Chiziane, este livro conta a história de 
-            amor de Sarnau e Mwando e traz a semente do que viria a ser o 
-            clássico Niketche. "Com a poligamia, com a monogamia ou mesmo 
-            solitária, a vida da mulher é sempre dura." Balada de amor ao vento é 
-            uma obra pioneira
-        </p>
-        <p class="book-info"> <strong>Data de Publicação:</strong> 1990 </p>
-        <p class="book-info"> <strong> Autora:</strong> Paulina Chiziane </p>
-        <p class="book-info"> <strong>Género (s):</strong> Ficção, Romance de amor</p>
-        <ul id="items-list"></ul>
+        <h1><strong>{{$book->title}}</strong></h1>
+        <p class="book-description">{{$book->description}}</p>
+        <p class="book-info"> <strong>Data de Publicação:</strong> {{$book->publication_date}}</p>
+        <p class="book-info"> <strong> Autora:</strong> {{$book->autor}}</p>
+        <p class="book-info"> <strong>Género (s):</strong></p>
+        <ul id="items-list" style="list-style: none">
+          @foreach($book->generos as $genero)
+          <li><span>{{ $genero }}</span></li>
+        @endforeach
+        </ul>
 
         <form action="" method="POST">
         @csrf

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,13 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [BookController::class, 'index']);
 
-Route::get('/descricao', function () {
-    return view('cliente.descricao');
-});
+
+
+Route::get('/descricao/{id}',[BookController::class, 'show']);
 
 Route::get('/favoritos', function () {
     return view('cliente.favoritos');
@@ -37,9 +36,8 @@ Route::get('/dashboard/favoritos', function () {
     return view('dashboard.favoritos');
 });
 
-Route::get('/dashboard/criar', function () {
-    return view('dashboard.criar');
-});
+Route::get('/dashboard/criar',[BookController::class, 'create']);
+Route::post('/dashboard',[BookController::class, 'store']);
 
 Route::get('/dashboard/lista', function () {
     return view('dashboard.lista');

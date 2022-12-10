@@ -9,14 +9,18 @@
     <form action="" method="POST" enctype="multipart/form-data">
         @csrf 
         <p>Filtrar por</p>
-        <div class="form-group filter-item">
-            <label for="autor">Autor</label>
-            <input type="text" class="form-control" id="autor"  name="autor" placeholder="Procurar"> 
-        </div>
-        <div class="form-group filter-item">
-            <label for="ano">Ano de Publicação</label>
-            <input type="text" class="form-control" id="ano"  name="ano" placeholder="Procurar"> 
-        </div>
+        <form action="/" method="GET">
+          <div class="form-group filter-item">
+              <label for="autor">Autor</label>
+              <input type="text" class="form-control" id="bscautor"  name="bscautor" placeholder="Procurar"> 
+          </div>
+        </form>
+        <form action="/" method="GET">
+          <div class="form-group filter-item">
+              <label for="ano">Ano de Publicação</label>
+              <input type="text" class="form-control" id="bscano"  name="bscano" placeholder="Procurar"> 
+          </div>
+        </form>
         
         <div class="form-group filter-item">
             <label for="genero">Género</label>
@@ -45,15 +49,27 @@
         <div class="welcome-books-container-header">
             <div class="all-books">Todos</div>
             <div>Pesquisados Recentemente</div>
-            <div class="form-group">
-                <input type="text" class="form-control" id="ano"  name="ano" placeholder="Procurar por titulos, autores"> 
-            </div>
+            <form action="/" method="GET">
+              <div class="form-group">
+                  <input type="text" class="form-control" id="bscautorano"  name="bscautorano" placeholder="Procurar por titulos, autores"> 
+              </div>
+            </form>
+
             <div class="avatar">
                 <img src='/imgs/leitor.png'/>
             </div>
         </div>
-        <div>
-            Exemplo
+        <div class="col-md-12">
+          @foreach ($books as $book)
+          <div class="card col-md-3">
+             <img src="/imgs/books/{{ $book->image }}" alt={{$book->title}}/>
+             <div class="card-body">                
+                <h5 class="card-title">{{$book->title}}</h5> 
+                <h5 class="card-title">{{$book->autor}}</h5>
+                <a href="/descricao/{{ $book->id }}" class="btn btn-primary">Saber mais</a>
+             </div>
+          </div>
+          @endforeach
         </div>
    </div>
 </div>

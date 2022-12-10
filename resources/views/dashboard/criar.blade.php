@@ -5,7 +5,7 @@
 @section('admin-content')
 <div id="book-create-container" class="col-md-8 offset-md-2">
     <h3>Registo - Livro</h3>
-    <form action="/books" method="POST" enctype="multipart/form-data">
+    <form action="/dashboard" method="POST" enctype="multipart/form-data">
         {{-- a directiva abxixo permite mandar os dados do form  --}}
         @csrf 
         <div class="form-group">
