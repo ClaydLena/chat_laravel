@@ -18,17 +18,30 @@ Route::get('/', function () {
 });
 
 Route::get('/descricao', function () {
-    return view('livros.descricao');
+    return view('cliente.descricao');
 });
 
 Route::get('/favoritos', function () {
-    return view('livros.favoritos');
+    return view('cliente.favoritos');
 });
 
 Route::get('/livro', function () {
-    return view('livros.livro');
+    return view('cliente.livro');
 });
 
-Route::get('/painel', function () {
-    return view('livros.painel');
+Route::get('/dashboard', function () {
+    return view('dashboard.dashboard');
 });
+
+Route::get('/dashboard/favoritos', function () {
+    return view('dashboard.favoritos');
+});
+
+Route::get('/dashboard/criar', function () {
+    return view('dashboard.criar');
+});
+
+Route::get('/dashboard/lista', function () {
+    return view('dashboard.lista');
+});
+

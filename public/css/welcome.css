@@ -6,6 +6,8 @@
 .welcome-filter-container{
     background-color: #F2E5CF;
     padding: 0 5%;
+    height: 700px;
+    margin-bottom: -200px;
 }
 .welcome-filter-container > h4{
     margin: 35px 0 50px 0;

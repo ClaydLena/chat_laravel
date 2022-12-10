@@ -9,6 +9,9 @@
         <link rel="stylesheet" href="/css/styles.css">
         <link rel="stylesheet" href="/css/welcome.css">
         <link rel="stylesheet" href="/css/descricao.css">
+        <link rel="stylesheet" href="/css/dashboard.css">
+        <link rel="stylesheet" href="/css/criar.css">
+        <link rel="stylesheet" href="/css/painel.css">
         <script src="/js/script.js"></script>
 
         {{-- Font --}}
@@ -27,9 +30,6 @@
                         <li class="nav-item">
                             <a href="" class="nav-link">Livros</a>
                         </li>
-                        {{-- <li class="nav-item">
-                            <a href="/events/create" class="nav-link"></a>
-                        </li> --}}
                         @auth
                             <li class="nav-item">
                                 <a href="/dashboard" class="nav-link">Favoritos</a>

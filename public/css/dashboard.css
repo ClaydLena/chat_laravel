@@ -1,0 +1,54 @@
+.dashboard-container{
+    display: grid;
+    grid-template-rows: 14% 20% auto;
+    background-color: #f3dab0;
+}
+
+.dashboard-container-header{
+    height: 70px;
+    display: grid;
+    align-items: center;
+    justify-content: space-between;
+    grid-template-columns: 40% 40% 10%;
+}
+
+.dashboard-container-header > div > h4 {
+    margin-left: 35px;
+}
+
+.dashboard-statistics{
+    height: 100%;
+    display: grid;
+    margin-top: 5px;
+    grid-template-columns: 30% 30% 30%;
+    justify-content: space-evenly;
+}
+
+.dashboard-statistics-item{
+    background-color: white;
+    border-radius: 16px;
+    text-align: center;
+    width: 90%;
+}
+
+.dashboard-statistics-item >h1{
+    margin-top: 5px;
+}
+
+.all-books{
+    margin-left: 15px;
+    width: 80%;
+    text-align: center;
+    border-radius: 15px;
+    background-color: lightgray;
+    padding: 4%;
+}
+.avatar >img {
+    width: 60px;
+    height: 50px;
+    border-radius: 25px;
+}
+
+.dashboard-pops{
+    margin: 20px 0 0 35px;
+}
