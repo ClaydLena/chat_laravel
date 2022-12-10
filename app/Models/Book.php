@@ -16,4 +16,6 @@ class Book extends Model
     protected $dates = [
         'publication_date'
     ];
+
+    protected $guarded = [];
 }

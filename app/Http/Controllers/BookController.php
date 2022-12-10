@@ -83,4 +83,35 @@ class BookController extends Controller
         return view ('dashboard.lista', ['books' => $books]);
     }
 
+    public function edit($id) {
+
+        $book = Book::findOrFail($id);
+
+        return view('dashboard.editar', ['book' => $book]);
+
+    }
+
+    public function update(Request $request) {
+
+        $data = $request->all();
+
+        //image upload -- verifiar se a request vem com img e se esse ficheiro e valido
+        if($request ->hasFile('image') ** $request->file('image')->isValid()){
+            $requestImage = $request->image;
+
+            $extension = $requestImage->extension();
+
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime('now')) . " . " . $extension;
+
+            $request ->image->move(public_path('imgs/books'), $imageName);
+
+            $data['image'] = $imageName;
+        }
+
+        Book::findOrFail($request->id)->update($data);
+
+        return redirect('/dashboard')->with('msg', 'Livro editado com sucesso');
+
+    }
+
 }

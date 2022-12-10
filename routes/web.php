@@ -41,3 +41,6 @@ Route::post('/dashboard',[BookController::class, 'store']);
 
 Route::get('/dashboard/lista', [BookController::class, 'lista']);
 
+Route::get('/dashboard/editar/{id}', [BookController::class, 'edit']);
+Route::put('/dashboard/actualizar/{id}', [BookController::class, 'update']);
+
