@@ -1,0 +1,16 @@
+.lista--container{
+
+}
+
+.lista-title-container {
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
+  
+  .lista-books-container th {
+    width: 25%;
+  }
+  
+  .lista-books-container form {
+    display: inline-block;
+  }

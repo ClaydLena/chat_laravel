@@ -75,4 +75,12 @@ class BookController extends Controller
         return redirect('/dashboard')->with('msg', 'Livro eliminado com sucesso');
     }
 
+    public function lista(){
+
+        $books = Book::all();
+
+        
+        return view ('dashboard.lista', ['books' => $books]);
+    }
+
 }

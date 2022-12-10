@@ -39,7 +39,5 @@ Route::get('/dashboard/favoritos', function () {
 Route::get('/dashboard/criar',[BookController::class, 'create']);
 Route::post('/dashboard',[BookController::class, 'store']);
 
-Route::get('/dashboard/lista', function () {
-    return view('dashboard.lista');
-});
+Route::get('/dashboard/lista', [BookController::class, 'lista']);
 

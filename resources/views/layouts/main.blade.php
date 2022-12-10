@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="/css/dashboard.css">
         <link rel="stylesheet" href="/css/criar.css">
         <link rel="stylesheet" href="/css/painel.css">
+        <link rel="stylesheet" href="/css/lista.css">
         <script src="/js/script.js"></script>
 
         {{-- Font --}}
