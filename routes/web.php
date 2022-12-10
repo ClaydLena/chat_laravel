@@ -17,12 +17,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+Route::get('/descricao', function () {
+    return view('livros.descricao');
+});
+
+Route::get('/favoritos', function () {
+    return view('livros.favoritos');
+});
+
+Route::get('/livro', function () {
+    return view('livros.livro');
+});
+
+Route::get('/painel', function () {
+    return view('livros.painel');
 });

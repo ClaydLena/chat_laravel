@@ -56,6 +56,11 @@
                         <div class="mt-4" style="margin-top: 30px">
                             <x-jet-input class="block mt-1 w-full" value="Autenticar-se com conta do Facebook" type='submit'/>
                         </div>
+                        <div class="mt-4" style="margin-top: 30px">
+                            <a href="/register">
+                                <x-jet-input class="block mt-1 w-full" value="Criar Conta" type='submit'/>
+                            </a>
+                        </div>
                     </div>
                 </form>
             </div>
