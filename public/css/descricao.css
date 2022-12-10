@@ -1,0 +1,19 @@
+* {
+    font-family: 'Roboto';
+}
+
+#info-container {
+    padding: 2% 5%;
+}
+
+.book-description{
+    margin: 45px 0;
+}
+
+.book-info{
+    margin-top: 25px;
+}
+
+.book-description, .book-info {
+    font-size: 22px;
+}

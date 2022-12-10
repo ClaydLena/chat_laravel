@@ -8,6 +8,7 @@
         {{-- css da app --}}
         <link rel="stylesheet" href="/css/styles.css">
         <link rel="stylesheet" href="/css/welcome.css">
+        <link rel="stylesheet" href="/css/descricao.css">
         <script src="/js/script.js"></script>
 
         {{-- Font --}}
