@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
+//use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,3 +45,5 @@ Route::get('/dashboard/lista', [BookController::class, 'lista']);
 Route::get('/dashboard/editar/{id}', [BookController::class, 'edit']);
 Route::put('/dashboard/actualizar/{id}', [BookController::class, 'update']);
 
+
+//Route::post('/register',[UserController::class, 'store']);

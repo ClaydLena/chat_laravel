@@ -6,7 +6,6 @@
 <div class="welcome-container">
    <div class="welcome-filter-container">
     <h4>BibliotecA DigitAL</h4>
-    <form action="" method="POST" enctype="multipart/form-data">
         @csrf 
         <p>Filtrar por</p>
         <form action="/" method="GET">
@@ -43,7 +42,7 @@
                 <input type="checkbox" name="items[]" value="Poesia"> Poesia
               </div>
           </div>
-    </form>
+    
    </div>
    <div class="welcome-books-container">
         <div class="welcome-books-container-header">

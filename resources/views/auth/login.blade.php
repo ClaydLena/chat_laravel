@@ -16,10 +16,10 @@
                         {{ session('status') }}
                     </div>
                 @endif
-        
+
+                @csrf
                 <form method="POST" action="{{ route('login') }}">
-                    @csrf
-        
+                 @csrf
                     <div style="margin-top: 30px">
                         <x-jet-label for="email" value="{{ __('E-mail') }}" />
                         <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
@@ -51,14 +51,14 @@
                     <div class="alternatives-auth">
                         <div style="text-align: center;margin-top: 30px">Ou</div>
                         <div class="mt-4" style="margin-top: 30px">
-                            <x-jet-input class="block mt-1 w-full" value="Autenticar-se com conta Google" type='submit'/>
+                            <x-jet-input class="block mt-1 w-full" value="Autenticar-se com conta Google" type='button'/>
                         </div>
                         <div class="mt-4" style="margin-top: 30px">
-                            <x-jet-input class="block mt-1 w-full" value="Autenticar-se com conta do Facebook" type='submit'/>
+                            <x-jet-input class="block mt-1 w-full" value="Autenticar-se com conta do Facebook" type='button'/>
                         </div>
                         <div class="mt-4" style="margin-top: 30px">
                             <a href="/register">
-                                <x-jet-input class="block mt-1 w-full" value="Criar Conta" type='submit'/>
+                                <x-jet-input class="block mt-1 w-full" value="Criar Conta" type='button'/>
                             </a>
                         </div>
                     </div>

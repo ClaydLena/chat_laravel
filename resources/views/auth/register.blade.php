@@ -6,9 +6,9 @@
 
         <x-jet-validation-errors class="mb-4" />
 
+        @csrf
         <form method="POST" action="{{ route('register') }}">
             @csrf
-
             <div>
                 <x-jet-label for="name" value="{{ __('Name') }}" />
                 <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
@@ -19,6 +19,11 @@
                 <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
             </div>
 
+            <div class="mt-4">
+                <x-jet-label for="profile_photo_path" value="{{ __('Foto de Perfil') }}" />
+                <x-jet-input id="profile_photo_path" class="block mt-1 w-full" type="file" name="profile_photo_path" required />
+            </div>
+            
             <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('Password') }}" />
                 <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
