@@ -60,4 +60,14 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    /**  Relacao N para N com livros - leituras */
+    public function booksAsReader(){
+        return $this->belongsToMany('App\Models\Book');
+    }
+
+    /** Relacao N para N com livros - favoritos */
+    public function booksAsLover(){
+        return $this->belongsToMany('App\Models\Book');
+    }
 }

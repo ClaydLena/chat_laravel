@@ -29,7 +29,9 @@
             this.closest('form').submit();">
             Ler o Livro
         </a>
+      </form>
 
+        @csrf
         <form action="/livros/favoritar/{{ $book->id }}" method="POST">
           @csrf
           <a href="/livros/favoritar/{{ $book->id }}" 

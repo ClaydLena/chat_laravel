@@ -16,37 +16,18 @@ use App\Http\Controllers\BookController;
 */
 
 Route::get('/', [BookController::class, 'index']);
-
-
-
-Route::get('/descricao/{id}',[BookController::class, 'show']);
-
-Route::get('/favoritos', function () {
-    return view('cliente.favoritos');
-});
-
-Route::get('/leituras', function () {
-    return view('cliente.leituras');
-});
-
-Route::get('/livro', function () {
-    return view('cliente.livro');
-});
-
 Route::get('/dashboard', [BookController::class, 'dashboard']);
-
-Route::get('/dashboard/favoritos', function () {
-    return view('dashboard.favoritos');
-});
-
 Route::get('/dashboard/criar',[BookController::class, 'create']);
 Route::post('/dashboard',[BookController::class, 'store']);
-
+Route::get('/descricao/{id}',[BookController::class, 'show']);
+Route::delete('/dashboard/{id}', [BookController::class, 'destroy']);
+Route::get('/livro', [BookController::class, 'livro']);
+Route::get('/dashboard/favoritos', [BookController::class, 'maislidos']);
 Route::get('/dashboard/lista', [BookController::class, 'lista']);
-
 Route::get('/dashboard/editar/{id}', [BookController::class, 'edit']);
 Route::put('/dashboard/actualizar/{id}', [BookController::class, 'update']);
+Route::get('/favoritos', [BookController::class, 'favoritos']);
+Route::get('/leituras',[BookController::class, 'leituras']);
+Route::post('/livros/ler/{id}',[BookController::class, 'ler']);
+Route::post('/livros/favoritar/{id}', [BookController::class, 'favoritar']);
 
-
-Route::post('/livros/ler',[BookController::class, 'ler']);
-Route::post('/livros/favoritar', [BookController::class, 'favoritar']);

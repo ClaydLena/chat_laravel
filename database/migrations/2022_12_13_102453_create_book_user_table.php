@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('favoritos', function (Blueprint $table) {
+        Schema::create('book_user', function (Blueprint $table) {
             $table->id();
-            $table->foreign('user_id')->constrained();
-            $table->foreign('book_id')->constrained();
+            $table->foreignId('book_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('favoritos');
+        Schema::dropIfExists('book_user');
     }
 };

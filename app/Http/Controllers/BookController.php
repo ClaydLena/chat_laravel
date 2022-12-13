@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
+
 
 class BookController extends Controller
 {
@@ -91,10 +94,8 @@ class BookController extends Controller
     }
 
     public function lista(){
-
         $books = Book::all();
 
-        
         return view ('dashboard.lista', ['books' => $books]);
     }
 
@@ -129,9 +130,49 @@ class BookController extends Controller
 
     }
 
+    public function livro(){
+        return view('cliente.livro');
+    }
 
-    public function ler(){}
+    public function maislidos(){
+        return view('dashboard.favoritos');
+    }
 
+    public function leituras(){
+        return view('cliente.leituras');
+    }
+
+    public function ler($id){
+        $user = auth()->user();
+
+        $user->booksAsReader()->attach($id);
+
+        $book = Book::findOrFail($id);
+
+        return redirect('/')->with('msg', 'Voce esta lendo ' . $book->title);
+
+    }
     
-    public function favoritar(){}
+    
+    public function favoritos(){
+        $user = auth()->user();
+
+        $books = DB::table('book_user')
+            ->join('books', 'books.id', '=', 'book_user.book_id')
+            ->get();
+        
+        return view('cliente.favoritos', ['books'=>$books]);
+    }
+
+    public function favoritar($id){
+       $user= auth()->user();
+
+         $user->booksAsLover()->attach($id);
+
+         $book = Book::findOrFail($id);
+
+        return redirect('/clientes/favoritos')->with('msg', 'O livro foi adicionado aos seus favoritos' . $book->title);
+    }
+
+
 }
