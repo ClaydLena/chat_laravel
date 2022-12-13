@@ -155,8 +155,6 @@ class BookController extends Controller
     
     
     public function favoritos(){
-        $user = auth()->user();
-
         $books = DB::table('book_user')
             ->join('books', 'books.id', '=', 'book_user.book_id')
             ->get();

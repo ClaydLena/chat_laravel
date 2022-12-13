@@ -17,3 +17,27 @@
 .book-description, .book-info {
     font-size: 22px;
 }
+
+.descricao-btns, .descricao-generos{
+    display: grid;
+    align-items: center;
+}
+
+.descricao-btns{
+    grid-template-columns: auto auto;
+}
+.descricao-generos{
+    grid-template-columns: 14.3% auto;
+}
+
+.descricao-generos > ul {
+    display: flex;
+    justify-content: flex-start;
+    column-gap: 5px;
+    font-size: 22px;
+    margin-left: -30px;
+}
+
+.descricao-generos > ul >li{
+    margin-top: 20px;
+}

@@ -12,8 +12,8 @@
            <div class="card-body">                
               <h5 class="card-title">{{$book->title}}</h5> 
               <h5 class="card-titl">{{$book->autor}}</h5>
-              <a href="/descricao/{{ $book->id }}" class="btn btn-primary">Ler</a>
-              <a href="/descricao/{{ $book->id }}" class="btn btn-danger">Excluir</a>
+              <a href="/livros/ler/{{ $book->id }}" class="btn btn-primary">Ler</a>
+              <a href="/livros/desfavoritar/{{ $book->id }}" class="btn btn-danger">Excluir</a>
            </div>
         </div>
         @endforeach
