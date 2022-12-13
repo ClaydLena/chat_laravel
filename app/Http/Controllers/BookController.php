@@ -145,12 +145,10 @@ class BookController extends Controller
     public function ler($id){
         $user = auth()->user();
 
-        $user->booksAsReader()->attach($id);
-
         $book = Book::findOrFail($id);
+        DB::insert('insert into leituras (book_id, user_id) values (?, ?, ?)', [$id, $user->id]);
 
         return redirect('/')->with('msg', 'Voce esta lendo ' . $book->title);
-
     }
     
     

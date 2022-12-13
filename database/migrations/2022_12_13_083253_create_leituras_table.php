@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('book_id')->constrained();
-            $table->string('estado');
+            $table->string('estado')->default('iniciado');
+            $table->integer('ultima_pagina')->default(0);
             $table->timestamps();
         });
     }
