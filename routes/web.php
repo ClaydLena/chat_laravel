@@ -29,9 +29,7 @@ Route::get('/livro', function () {
     return view('cliente.livro');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard.dashboard');
-});
+Route::get('/dashboard', [BookController::class, 'dashboard']);
 
 Route::get('/dashboard/favoritos', function () {
     return view('dashboard.favoritos');

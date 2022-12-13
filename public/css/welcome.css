@@ -6,8 +6,8 @@
 .welcome-filter-container{
     background-color: #F2E5CF;
     padding: 0 5%;
-    height: 700px;
-    margin-bottom: -200px;
+    height: 88vh;
+    margin-bottom: -250px;
 }
 .welcome-filter-container > h4{
     margin: 35px 0 50px 0;
@@ -25,11 +25,10 @@
 
 .welcome-books-container{
     display: grid;
-    grid-template-rows: auto auto;
+    grid-template-rows: 12% auto;
 }
 
 .welcome-books-container-header{
-    height: 80px;
     display: grid;
     align-items: center;
     justify-content: space-between;
@@ -48,4 +47,38 @@
     width: 60px;
     height: 50px;
     border-radius: 25px;
+}
+
+
+#books-container {
+    padding-left: 15px;
+}
+
+#cards-container {
+    display: flex;
+}
+
+#books-container .card {
+flex: 1 1 24%;
+max-width: 25%;
+border-radius: 10px;
+padding: 0;
+margin: .5%;
+}
+
+#books-container img {
+max-height: 150px;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+}
+
+.card .card-title {
+color: #212121;
+font-size: 20px;
+font-weight: bold;
+margin-bottom: 10px;
+}
+
+.card{
+    height: 275px;
 }

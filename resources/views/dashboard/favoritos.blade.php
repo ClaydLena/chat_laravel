@@ -10,7 +10,7 @@
             <input type="text" class="form-control" id="ano"  name="ano" placeholder="Procurar por titulos, autores"> 
         </div>
         <div class="avatar">
-            <img src='/imgs/admin.png'/>
+            <img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}"/>
         </div>
     </div>
    </div>

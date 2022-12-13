@@ -55,20 +55,22 @@
             </form>
 
             <div class="avatar">
-                <img src='/imgs/leitor.png'/>
+                <img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}"/>
             </div>
         </div>
-        <div class="col-md-12">
-          @foreach ($books as $book)
-          <div class="card col-md-3">
-             <img src="/imgs/books/{{ $book->image }}" alt={{$book->title}}/>
-             <div class="card-body">                
-                <h5 class="card-title">{{$book->title}}</h5> 
-                <h5 class="card-title">{{$book->autor}}</h5>
-                <a href="/descricao/{{ $book->id }}" class="btn btn-primary">Saber mais</a>
-             </div>
+        <div id="books-container" class="col-md-12 ">
+          <div id="cards-container" class="row">
+            @foreach ($books as $book)
+            <div class="card col-md-3">
+               <img src="/imgs/books/{{ $book->image }}" alt={{$book->title}}/>
+               <div class="card-body">                
+                  <h5 class="card-title">{{$book->title}}</h5> 
+                  <h5 class="card-titl">{{$book->autor}}</h5>
+                  <a href="/descricao/{{ $book->id }}" class="btn btn-primary">Saber mais</a>
+               </div>
+            </div>
+            @endforeach
           </div>
-          @endforeach
         </div>
    </div>
 </div>

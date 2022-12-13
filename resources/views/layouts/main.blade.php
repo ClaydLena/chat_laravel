@@ -33,12 +33,13 @@
                         </li>
                         @auth
                             <li class="nav-item">
-                                <a href="/dashboard" class="nav-link">Favoritos</a>
+                                <a href="/favoritos" class="nav-link">Favoritos</a>
                             </li>
                             <li class="nav-item">
-                                <form action="/logout" method="POST">
+                                @csrf
+                                <form action="{{ route('logout') }}" method="POST">
                                     @csrf
-                                    <a href="/logout" class="nav-link" onclick="event.preventDefault(); this.closest('form').sunmit()">Sair</a>
+                                    <a href="{{ route('logout') }}" class="nav-link" onclick="this.closest('form').sunmit()">Sair</a>
                                 </form>
                             </li>
                         @endauth

@@ -23,7 +23,7 @@
                     <tr>
                         <td scropt="row">{{ $loop->index + 1 }}</td>
                         <td><a href="/descricao/{{ $book->id }}">{{ $book->title }}</a></td>
-                        <td>0</td>
+                        <td>{{$book->autor}}</td>
                         <td>
                             <a href="/dashboard/editar/{{ $book->id }}" class="btn btn-info edit-btn"><ion-icon name="create-outline"></ion-icon> Editar</a> 
                             <form action="/dashboard/{{ $book->id }}" method="POST">

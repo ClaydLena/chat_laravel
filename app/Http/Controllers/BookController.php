@@ -34,6 +34,21 @@ class BookController extends Controller
         return view('welcome', ['books' =>$books, 'bscautor'=>$bscautor, 'bscano'=>$bscano, 'bscautorano'=>$bscautorano]);
     }
 
+    public function dashboard(){
+        $busca = request('busca');
+        
+        if($busca) {
+            $books = Book::where([
+                ['autor', 'like', '%'.$busca.'%']
+                ])->get();
+        } 
+        else {
+            $books = Book::all();
+        }
+      
+        return view('dashboard.dashboard', ['books' =>$books, 'busca'=>$busca]);
+    }
+
     public function create(){
         return view ('dashboard.criar');
     }

@@ -1,11 +1,14 @@
+body{
+    background-color: #f3dab0 !important;
+}
+
 .dashboard-container{
     display: grid;
-    grid-template-rows: 14% 20% auto;
-    background-color: #f3dab0;
+    grid-template-rows: 10% 15% auto;
+    
 }
 
 .dashboard-container-header{
-    height: 70px;
     display: grid;
     align-items: center;
     justify-content: space-between;
@@ -51,4 +54,12 @@
 
 .dashboard-pops{
     margin: 20px 0 0 35px;
+}
+
+.dashboard-books-container{
+    margin-top: 15px;
+}
+
+.dashboard-books-container > h5 {
+    margin-left: 25px;
 }
