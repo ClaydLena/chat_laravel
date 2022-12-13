@@ -20,15 +20,25 @@
         @endforeach
         </ul>
 
-        <form action="" method="POST">
+        <form action="/livros/ler/{{ $book->id }}" method="POST">
         @csrf
-        <a href="" 
+        <a href="/livros/ler/{{ $book->id }}" 
             class="btn btn-primary btn-lg" 
             id="book-submit"
             onclick="event.preventDefault();
             this.closest('form').submit();">
             Ler o Livro
         </a>
+
+        <form action="/livros/favoritar/{{ $book->id }}" method="POST">
+          @csrf
+          <a href="/livros/favoritar/{{ $book->id }}" 
+              class="btn btn-primary btn-lg" 
+              id="book-submit"
+              onclick="event.preventDefault();
+              this.closest('form').submit();">
+              Adicionar aos Favoritos
+          </a>
         </form>
       </div>
     </div>

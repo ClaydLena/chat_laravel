@@ -25,6 +25,10 @@ Route::get('/favoritos', function () {
     return view('cliente.favoritos');
 });
 
+Route::get('/leituras', function () {
+    return view('cliente.leituras');
+});
+
 Route::get('/livro', function () {
     return view('cliente.livro');
 });
@@ -44,4 +48,5 @@ Route::get('/dashboard/editar/{id}', [BookController::class, 'edit']);
 Route::put('/dashboard/actualizar/{id}', [BookController::class, 'update']);
 
 
-//Route::post('/register',[UserController::class, 'store']);
+Route::post('/livros/ler',[BookController::class, 'ler']);
+Route::post('/livros/favoritar', [BookController::class, 'favoritar']);

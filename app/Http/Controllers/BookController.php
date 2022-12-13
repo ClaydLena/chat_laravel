@@ -129,4 +129,9 @@ class BookController extends Controller
 
     }
 
+
+    public function ler(){}
+
+    
+    public function favoritar(){}
 }

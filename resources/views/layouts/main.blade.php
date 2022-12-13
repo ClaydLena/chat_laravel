@@ -29,11 +29,14 @@
                     </a>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="" class="nav-link">Livros</a>
+                            <a href="/" class="nav-link">Livros</a>
                         </li>
                         @auth
                             <li class="nav-item">
                                 <a href="/favoritos" class="nav-link">Favoritos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/leituras" class="nav-link">Lista de leituras</a>
                             </li>
                             <li class="nav-item">
                                 @csrf
