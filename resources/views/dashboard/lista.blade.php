@@ -37,7 +37,7 @@
             </tbody>
         </table>
         @else
-        <p>Nenhum livro foi registado, <a href="/dashboard/criar">criar evento</a></p>
+        <p>Nenhum livro foi registado, <a href="/dashboard/criar">registar livro</a></p>
         @endif
     </div>
 </div>

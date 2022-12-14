@@ -53,10 +53,11 @@
                   <input type="text" class="form-control" id="bscautorano"  name="bscautorano" placeholder="Procurar por titulos, autores"> 
               </div>
             </form>
-
-            <div class="avatar">
-                <img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}"/>
-            </div>
+            @if(Auth::user()!=null)
+              <div class="avatar">
+                  <img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}"/>
+              </div>
+            @endif
         </div>
         <div id="books-container" class="col-md-12 ">
           <div id="cards-container" class="row">

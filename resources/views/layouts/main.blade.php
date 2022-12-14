@@ -29,22 +29,28 @@
                     </a>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="/" class="nav-link">Livros</a>
+                            <a href="/" class="nav-link">Home</a>
                         </li>
                         @auth
+                        @if(Auth::user()->acesso ='leitor')
                             <li class="nav-item">
                                 <a href="/favoritos" class="nav-link">Favoritos</a>
                             </li>
                             <li class="nav-item">
                                 <a href="/leituras" class="nav-link">Lista de leituras</a>
                             </li>
+                        @else
                             <li class="nav-item">
+                                <a href="" class="nav-link">Painel de Controle</a>
+                            </li>
+                        @endif
+                        <li class="nav-item">
                                 @csrf
                                 <form action="{{ route('logout') }}" method="POST">
                                     @csrf
                                     <a href="{{ route('logout') }}" class="nav-link" onclick="this.closest('form').sunmit()">Sair</a>
                                 </form>
-                            </li>
+                        </li>
                         @endauth
                         @guest    
                             <li class="nav-item">

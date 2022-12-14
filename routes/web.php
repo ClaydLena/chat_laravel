@@ -31,3 +31,9 @@ Route::get('/leituras',[BookController::class, 'leituras']);
 Route::post('/livros/ler/{id}',[BookController::class, 'ler']);
 Route::post('/livros/favoritar/{id}', [BookController::class, 'favoritar']);
 
+
+
+Route::get('/me', function(){
+    return view('profile.show');
+});
+
