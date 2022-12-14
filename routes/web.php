@@ -43,3 +43,4 @@ Route::get('/me/edit', function($user){
 })->middleware('auth');
 
 
+Route::get('/autoria', [BookController::class, 'autoria'])->middleware('auth');

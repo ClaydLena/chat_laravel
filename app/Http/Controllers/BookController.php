@@ -186,4 +186,13 @@ class BookController extends Controller
     }
 
 
+    public function autoria(){
+        $nome = auth()->user()->name;
+        $books = Book::where([
+            ['autor', '=', $nome]
+        ])->get();
+
+        return view('cliente.autoria', ['books'=>$books]);
+    }
+
 }
