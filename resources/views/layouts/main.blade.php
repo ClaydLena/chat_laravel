@@ -44,6 +44,9 @@
                                 <li class="nav-item">
                                     <a href="/autoria" class="nav-link">Autoria</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="/me" class="nav-link">Minha Conta</a>
+                                </li>
                             @endif
                             @if(Auth::user()->acesso == 'admin')
                                 <li class="nav-item">

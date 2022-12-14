@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\UserController;
 
 //use App\Http\Controllers\UserController;
 
@@ -34,13 +35,10 @@ Route::post('/livros/ler/{id}',[BookController::class, 'ler'])->middleware('auth
 Route::post('/livros/favoritar/{id}', [BookController::class, 'favoritar'])->middleware('auth');
 
 $user = Auth::user();
-Route::get('/me', function($user){
-    return view('cliente.perfil', ['user'=>$user]);
-})->middleware('auth');
+Route::get('/me', [UserController::class, 'me'])->middleware('auth');
 
-Route::get('/me/edit', function($user){
-    return view('cliente.edit-perfil', ['user'=>$user]);
-})->middleware('auth');
+Route::get('/me/edit/{id}', [UserController::class, 'edit'] )->middleware('auth');
 
+Route::put('/me/actualizar/{id}', [UserController::class, 'update'])->middleware(['auth']);
 
 Route::get('/autoria', [BookController::class, 'autoria'])->middleware('auth');
