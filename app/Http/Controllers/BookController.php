@@ -77,6 +77,18 @@ class BookController extends Controller
             $book ->image = $imageName;
         }
 
+        if($request ->hasFile('livro') ** $request->file('livro')->isValid()){
+            $requestLivro = $request->livro;
+
+            $extension = $requestLivro->extension();
+
+            $livroName = md5($requestLivro->getClientOriginalName() . strtotime('now')) . " . " . $extension;
+
+            $request ->livro->move(public_path('imgs/bookfiles'), $livroName);
+
+            $book ->livro = $livroName;
+        }
+
         $book -> save();
 
         return redirect('/') ->with('msg', 'Evento Criado com sucesso');
