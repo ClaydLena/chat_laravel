@@ -42,3 +42,6 @@ Route::get('/me/edit/{id}', [UserController::class, 'edit'] )->middleware('auth'
 Route::put('/me/actualizar/{id}', [UserController::class, 'update'])->middleware(['auth']);
 
 Route::get('/autoria', [BookController::class, 'autoria'])->middleware('auth');
+
+
+Route::post('/denunciar/{id}', [BookController::class, 'denunciar'])->middleware('auth');

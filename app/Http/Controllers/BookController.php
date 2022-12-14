@@ -195,4 +195,12 @@ class BookController extends Controller
         return view('cliente.autoria', ['books'=>$books]);
     }
 
+    public function denunciar($id){
+        $user = auth()->user();
+
+        DB::insert('insert into denuncias (user_id, book_id) values (?, ?)', [$id, $user->id]);
+
+        return view('welcome')->with('msg','Sua denuncia foi registada')
+    }
+
 }

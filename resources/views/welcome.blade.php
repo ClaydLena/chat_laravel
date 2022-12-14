@@ -67,8 +67,22 @@
                <div class="card-body">                
                   <h5 class="card-title">{{$book->title}}</h5> 
                   <h5 class="card-titl">{{$book->autor}}</h5>
-                  <a href="/descricao/{{ $book->id }}" class="btn btn-primary">Saber mais</a>
-               </div>
+                  <div style="display:grid; grid-template-columns:auto auto; column-gap:2%">
+                    <a href="/descricao/{{ $book->id }}" class="btn btn-primary">Saber mais</a>
+                    @if(in_array('escritor', Auth::user()->acesso))
+                     <form action="/denunciar/{{ $book->id }}" method="POST">
+                       @csrf
+                       <a href="/denunciar/{{ $book->id }}" 
+                           class="btn btn-danger" 
+                           id="book-submit"
+                           onclick="event.preventDefault();
+                           this.closest('form').submit();">
+                           Denunciar
+                       </a>
+                     </form>
+                    @endif
+                  </div>
+                </div>
             </div>
             @endforeach
           </div>
