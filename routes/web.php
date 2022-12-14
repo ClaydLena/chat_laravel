@@ -16,24 +16,19 @@ use App\Http\Controllers\BookController;
 */
 
 Route::get('/', [BookController::class, 'index']);
-Route::get('/dashboard', [BookController::class, 'dashboard']);
-Route::get('/dashboard/criar',[BookController::class, 'create']);
-Route::post('/dashboard',[BookController::class, 'store']);
-Route::get('/descricao/{id}',[BookController::class, 'show']);
-Route::delete('/dashboard/{id}', [BookController::class, 'destroy']);
-Route::get('/livro', [BookController::class, 'livro']);
-Route::get('/dashboard/favoritos', [BookController::class, 'maislidos']);
-Route::get('/dashboard/lista', [BookController::class, 'lista']);
-Route::get('/dashboard/editar/{id}', [BookController::class, 'edit']);
-Route::put('/dashboard/actualizar/{id}', [BookController::class, 'update']);
-Route::get('/favoritos', [BookController::class, 'favoritos']);
-Route::get('/leituras',[BookController::class, 'leituras']);
-Route::post('/livros/ler/{id}',[BookController::class, 'ler']);
-Route::post('/livros/favoritar/{id}', [BookController::class, 'favoritar']);
+Route::get('/dashboard', [BookController::class, 'dashboard'])->middleware('auth','admin');
+Route::get('/dashboard/criar',[BookController::class, 'create'])->middleware('auth','admin');
+Route::post('/dashboard',[BookController::class, 'store'])->middleware('auth','admin');
+Route::get('/descricao/{id}',[BookController::class, 'show'])->middleware('auth');
+Route::delete('/dashboard/{id}', [BookController::class, 'destroy'])->middleware('auth','admin');
+Route::get('/livro', [BookController::class, 'livro'])->middleware('auth');
+Route::get('/dashboard/favoritos', [BookController::class, 'maislidos'])->middleware('auth','admin');
+Route::get('/dashboard/lista', [BookController::class, 'lista'])->middleware('auth','admin');
+Route::get('/dashboard/editar/{id}', [BookController::class, 'edit'])->middleware('auth','admin');
+Route::put('/dashboard/actualizar/{id}', [BookController::class, 'update'])->middleware('auth','admin');
+Route::get('/favoritos', [BookController::class, 'favoritos'])->middleware('auth');
+Route::get('/leituras',[BookController::class, 'leituras'])->middleware('auth');
+Route::post('/livros/ler/{id}',[BookController::class, 'ler'])->middleware('auth');
+Route::post('/livros/favoritar/{id}', [BookController::class, 'favoritar'])->middleware('auth');
 
-
-
-Route::get('/me', function(){
-    return view('profile.show');
-});
 
