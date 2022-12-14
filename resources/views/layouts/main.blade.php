@@ -48,7 +48,7 @@
                                     <a href="/me" class="nav-link">Minha Conta</a>
                                 </li>
                             @endif
-                            @if(Auth::user()->acesso == 'admin')
+                            @if(in_array('admin',Auth::user()->acesso))
                                 <li class="nav-item">
                                     <a href="/dashboard" class="nav-link">Painel de Controle</a>
                                 </li>
