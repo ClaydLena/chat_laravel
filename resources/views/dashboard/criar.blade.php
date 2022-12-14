@@ -18,7 +18,13 @@
         </div>
         <div class="form-group">
             <label for="autor">Autor</label>
-            <input type="text" class="form-control" id="autor" name="autor" placeholder="Autor do Livro"> 
+            {{-- <input type="text" class="form-control" id="autor" name="autor" placeholder="Autor do Livro">  --}}
+            <select type="text" class="form-control" id="autor"  name="autor" placeholder="Titulo do livro">teste
+              <option value=''></option>
+              @foreach ($autores as $autor )
+                  <option value="{{$autor->name}}">{{$autor->name}}</option>
+              @endforeach  
+            </select> 
         </div>
         <div class="form-group">
             <label for="publication_date">Data de Publicacao</label>

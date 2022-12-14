@@ -53,7 +53,10 @@ class BookController extends Controller
     }
 
     public function create(){
-        return view ('dashboard.criar');
+        $autores = User::where([
+            ['acesso', 'like', '%'.'escritor'.'%']])
+            ->get();
+        return view ('dashboard.criar', ['autores'=>$autores]);
     }
 
     public function store(Request $request){
@@ -91,7 +94,7 @@ class BookController extends Controller
 
         $book -> save();
 
-        return redirect('/') ->with('msg', 'Evento Criado com sucesso');
+        return redirect('/') ->with('msg', 'Livro Criado com sucesso');
     }
 
     public function show($id){

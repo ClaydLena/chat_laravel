@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
+use Illuminate\Support\Facades\Auth;
+
 //use App\Http\Controllers\UserController;
 
 /*
@@ -30,5 +32,14 @@ Route::get('/favoritos', [BookController::class, 'favoritos'])->middleware('auth
 Route::get('/leituras',[BookController::class, 'leituras'])->middleware('auth');
 Route::post('/livros/ler/{id}',[BookController::class, 'ler'])->middleware('auth');
 Route::post('/livros/favoritar/{id}', [BookController::class, 'favoritar'])->middleware('auth');
+
+$user = Auth::user();
+Route::get('/me', function($user){
+    return view('cliente.perfil', ['user'=>$user]);
+})->middleware('auth');
+
+Route::get('/me/edit', function($user){
+    return view('cliente.edit-perfil', ['user'=>$user]);
+})->middleware('auth');
 
 

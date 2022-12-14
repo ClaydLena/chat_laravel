@@ -32,7 +32,7 @@
                             <a href="/" class="nav-link">Home</a>
                         </li>
                         @auth
-                            @if(Auth::user()->acesso ='leitor')
+                            @if(in_array('leitor', Auth::user()->acesso))
                                 <li class="nav-item">
                                     <a href="/favoritos" class="nav-link">Favoritos</a>
                                 </li>
@@ -40,7 +40,12 @@
                                     <a href="/leituras" class="nav-link">Lista de leituras</a>
                                 </li>
                             @endif
-                            @if(Auth::user()->acesso ='admin')
+                            @if(in_array('escritor', Auth::user()->acesso))
+                                <li class="nav-item">
+                                    <a href="/autoria" class="nav-link">Autoria</a>
+                                </li>
+                            @endif
+                            @if(Auth::user()->acesso == 'admin')
                                 <li class="nav-item">
                                     <a href="/dashboard" class="nav-link">Painel de Controle</a>
                                 </li>
