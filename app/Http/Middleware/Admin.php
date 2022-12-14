@@ -10,11 +10,10 @@ class Admin
     
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->acesso ='leitor') {
+        if (Auth::user()->acesso =='leitor') {
             return response('Unauthorized.', 401);
         }
         else {
-            //return route('/dashboard');
             return $next($request);
         }
     }

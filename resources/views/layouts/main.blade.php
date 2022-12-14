@@ -32,25 +32,26 @@
                             <a href="/" class="nav-link">Home</a>
                         </li>
                         @auth
-                        @if(Auth::user()->acesso ='leitor')
+                            @if(Auth::user()->acesso ='leitor')
+                                <li class="nav-item">
+                                    <a href="/favoritos" class="nav-link">Favoritos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/leituras" class="nav-link">Lista de leituras</a>
+                                </li>
+                            @endif
+                            @if(Auth::user()->acesso ='admin')
+                                <li class="nav-item">
+                                    <a href="/dashboard" class="nav-link">Painel de Controle</a>
+                                </li>
+                            @endif
                             <li class="nav-item">
-                                <a href="/favoritos" class="nav-link">Favoritos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/leituras" class="nav-link">Lista de leituras</a>
-                            </li>
-                        @else
-                            <li class="nav-item">
-                                <a href="" class="nav-link">Painel de Controle</a>
-                            </li>
-                        @endif
-                        <li class="nav-item">
-                                @csrf
-                                <form action="{{ route('logout') }}" method="POST">
                                     @csrf
-                                    <a href="{{ route('logout') }}" class="nav-link" onclick="this.closest('form').sunmit()">Sair</a>
-                                </form>
-                        </li>
+                                    <form action="{{ route('logout') }}" method="POST">
+                                        @csrf
+                                        <a href="{{ route('logout') }}" class="nav-link" onclick="this.closest('form').sunmit()">Sair</a>
+                                    </form>
+                            </li>
                         @endauth
                         @guest    
                             <li class="nav-item">

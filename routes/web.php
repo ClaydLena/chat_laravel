@@ -16,16 +16,16 @@ use App\Http\Controllers\BookController;
 */
 
 Route::get('/', [BookController::class, 'index']);
-Route::get('/dashboard', [BookController::class, 'dashboard'])->middleware('auth','admin');
-Route::get('/dashboard/criar',[BookController::class, 'create'])->middleware('auth','admin');
-Route::post('/dashboard',[BookController::class, 'store'])->middleware('auth','admin');
+Route::get('/dashboard', [BookController::class, 'dashboard'])->middleware(['auth']);
+Route::get('/dashboard/criar',[BookController::class, 'create'])->middleware(['auth']);
+Route::post('/dashboard',[BookController::class, 'store'])->middleware(['auth']);
 Route::get('/descricao/{id}',[BookController::class, 'show'])->middleware('auth');
-Route::delete('/dashboard/{id}', [BookController::class, 'destroy'])->middleware('auth','admin');
+Route::delete('/dashboard/{id}', [BookController::class, 'destroy'])->middleware(['auth']);
 Route::get('/livro', [BookController::class, 'livro'])->middleware('auth');
-Route::get('/dashboard/favoritos', [BookController::class, 'maislidos'])->middleware('auth','admin');
-Route::get('/dashboard/lista', [BookController::class, 'lista'])->middleware('auth','admin');
-Route::get('/dashboard/editar/{id}', [BookController::class, 'edit'])->middleware('auth','admin');
-Route::put('/dashboard/actualizar/{id}', [BookController::class, 'update'])->middleware('auth','admin');
+Route::get('/dashboard/favoritos', [BookController::class, 'maislidos'])->middleware(['auth']);
+Route::get('/dashboard/lista', [BookController::class, 'lista'])->middleware(['auth']);
+Route::get('/dashboard/editar/{id}', [BookController::class, 'edit'])->middleware(['auth']);
+Route::put('/dashboard/actualizar/{id}', [BookController::class, 'update'])->middleware(['auth']);
 Route::get('/favoritos', [BookController::class, 'favoritos'])->middleware('auth');
 Route::get('/leituras',[BookController::class, 'leituras'])->middleware('auth');
 Route::post('/livros/ler/{id}',[BookController::class, 'ler'])->middleware('auth');
