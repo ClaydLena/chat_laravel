@@ -154,16 +154,20 @@ class BookController extends Controller
     }
 
     public function leituras(){
-        return view('cliente.leituras');
+        $books = DB::table('leituras')
+        ->join('books', 'books.id', '=', 'leituras.book_id')
+        ->get();
+
+        return view('cliente.leituras',['books'=>$books]);
     }
 
     public function ler($id){
         $user = auth()->user();
 
         $book = Book::findOrFail($id);
-        DB::insert('insert into leituras (book_id, user_id) values (?, ?, ?)', [$id, $user->id]);
+        DB::insert('insert into leituras (book_id, user_id) values (?, ?)', [$id, $user->id]);
 
-        return redirect('/')->with('msg', 'Voce esta lendo ' . $book->title);
+        return redirect('/leituras')->with('msg', 'Voce esta lendo ' . $book->title);
     }
     
     
@@ -200,7 +204,12 @@ class BookController extends Controller
 
         DB::insert('insert into denuncias (user_id, book_id) values (?, ?)', [$id, $user->id]);
 
-        return view('welcome')->with('msg','Sua denuncia foi registada')
+        return view('welcome')->with('msg','Sua denuncia foi registada');
     }
 
+    public function abrir($id){
+        $book = Book::findOrFail($id);
+
+        return view('cliente.ler', ['book'=>$book]);
+    }
 }

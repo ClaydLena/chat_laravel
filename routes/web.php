@@ -45,3 +45,5 @@ Route::get('/autoria', [BookController::class, 'autoria'])->middleware('auth');
 
 
 Route::post('/denunciar/{id}', [BookController::class, 'denunciar'])->middleware('auth');
+
+Route::get('/ler/{id}',[BookController::class, 'abrir'])->middleware('auth');
