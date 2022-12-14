@@ -25,6 +25,10 @@
             <input type="date" class="form-control" id="publication_date"  name="publication_date"> 
         </div>
         <div class="form-group">
+          <label for="livro">Livro</label>
+          <input type="file" class="form-control-file" id="livro"  name="livro"> 
+        </div>
+        <div class="form-group">
             <label for="title">Descricao</label>
             <textarea name="description" id="description" class="form-control"></textarea>
         </div>

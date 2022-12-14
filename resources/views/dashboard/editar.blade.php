@@ -26,6 +26,10 @@
             <input type="date" class="form-control" id="publication_date"  name="publication_date" value="{{ $book->publication_date->format('Y-m-d') }}"> 
         </div>
         <div class="form-group">
+          <label for="livro">Livro</label>
+          <input type="file" class="form-control-file" id="livro"  name="livro" value="{{ $book->livro }}"> 
+        </div>
+        <div class="form-group">
             <label for="title">Descricao</label>
             <textarea name="description" id="description" class="form-control" value="{{ $book->description }}"></textarea>
         </div>
